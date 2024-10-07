@@ -1,0 +1,20 @@
+
+
+
+docker build -t bfwork/cloudconnectorexample -f Dockerfile . ;
+
+
+docker push bfwork/cloudconnectorexample 
+
+docker run -it --user nobody bfwork/cloudconnectorexample /bin/sh -c "python /app/src/app.py"
+
+docker run --user nobody -it bfwork/cloudconnectorexample /bin/sh
+
+python /app/src/main.py
+
+echo "This is a sample file." > /app/src/sam asd plefile.txt
+echo "This is a sample file." > "/app/src/sam asd plefile.txt"
+
+
+
+docker build docker.io/bfwork/cloudconnectorexample

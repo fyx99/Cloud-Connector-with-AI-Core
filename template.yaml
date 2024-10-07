@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: cloudconnectorexample
+  annotations:
+    scenarios.ai.sap.com/description: "cloudconnectorexample"
+    scenarios.ai.sap.com/name: "cloudconnectorexample"
+    executables.ai.sap.com/description: "cloudconnectorexample"
+    executables.ai.sap.com/name: "cloudconnectorexample"
+    artifacts.ai.sap.com/example-dataset.kind: "dataset"
+  labels:
+    scenarios.ai.sap.com/id: "cloudconnectorexample"
+    executables.ai.sap.com/id: "cloudconnectorexample"
+    ai.sap.com/version: "1.0.0"
+spec:
+  imagePullSecrets:
+    - name: felixdockersecrect
+  entrypoint: cloudconnectorexample
+  templates:
+    - name: cloudconnectorexample
+      container:
+        image: "docker.io/bfwork/cloudconnectorexample"
+        imagePullPolicy: Always
+        command: ["/bin/sh", "-c"]
+        args:
+          - "python /app/src/app.py"
